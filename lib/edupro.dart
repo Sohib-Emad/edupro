@@ -1,8 +1,13 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:edupro/core/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'package:edupro/core/routing/app_router.dart';
+
 class Edupro extends StatelessWidget {
-  const Edupro({super.key});
+  final AppRouter appRouter;
+  const Edupro({super.key, required this.appRouter});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +20,8 @@ class Edupro extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'First Method',
+          initialRoute: Routes.onboarding,
+          onGenerateRoute: appRouter.onGenerateRoute,
         );
       },
     );
